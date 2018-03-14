@@ -1,0 +1,34 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "name": "Launch Features",
+      "stopOnEntry": false,
+      "program": "${workspaceRoot}/node_modules/.bin/cucumber-js",
+      "args": [
+        "features/**/*.feature",
+        "--require", 
+        "step-definitions/**/*.ts",
+        "--require",
+        "hooks/**/*.ts",
+        "--require-module",
+        "ts-node/register",
+        "--format-options '{\"snippetInterface\": \"async-await\"}'",
+        "--tags",
+        "@only",
+        "--logLevel=verbose"
+      ],
+      "cwd": "${workspaceRoot}",
+      "runtimeArgs": [
+        "--nolazy"],
+    "sourceMaps": true
+    }
+  ]
+}
