@@ -21,9 +21,10 @@
         "--require-module",
         "ts-node/register",
         "--format-options '{\"snippetInterface\": \"async-await\"}'",
+        "--format",
+        "summary",
         "--tags",
-        "@only",
-        "--logLevel=verbose"
+        "@only and @debug"
       ],
       "cwd": "${workspaceRoot}",
       "runtimeArgs": [

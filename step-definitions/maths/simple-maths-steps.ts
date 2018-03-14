@@ -1,8 +1,7 @@
 import {expect} from "chai";
 import { Before, Given, Then, When } from "cucumber";
 import { ISimpleMathsContext, SimpleMathsCalculator } from "../../domains/simple-maths/simple-maths-calculator";
-import { cliArgs } from "../../hooks/command-line-args";
-import { getLogger } from "../../loggers/common-logger";
+
 // tslint:disable:only-arrow-functions
 
 Given("I have a simple maths calculator", async function() {
@@ -32,10 +31,6 @@ Then("the variable should contain {int}", async function(value: number) {
 /**
  * Before each scenario hook
  */
-Before({tags: "@simpleLogger"}, async function() {
-    this.context = {
-        ...this.context,
-        cliArgs,
-        logger: getLogger("@simpleLogger"),
-    };
+Before({tags: "@foo"}, async function() {
+    this.foo = true;
 });
