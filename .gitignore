@@ -60,3 +60,6 @@ typings/
 #reports
 reports/*.html
 reports/*.json
+
+#build
+build

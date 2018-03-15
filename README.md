@@ -22,3 +22,7 @@ Starter project to write and debug cucumber-js features in TypeScript language.
 ## To ignore a scenario
 
 * tag the scenario with `@ignore`
+
+## To check for typescript and linting errors
+
+* run the command `npm run build`.
