@@ -26,3 +26,7 @@ Starter project to write and debug cucumber-js features in TypeScript language.
 ## To check for typescript and linting errors
 
 * run the command `npm run build`.
+
+## To view the html report of the last run
+
+* run the command `npm run report`.
