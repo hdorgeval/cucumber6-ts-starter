@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm-run-all cucumber report",
-    "cucumber": "./node_modules/.bin/cucumber-js features/**/*.feature --logLevel=error --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options '{\"snippetInterface\": \"async-await\"}' --format json:reports/cucumber-report.json --format summary",
+    "cucumber": "./node_modules/.bin/cucumber-js features/**/*.feature --logLevel=error --require 'step-definitions/**/*.ts' --require 'hooks/**/*.ts'  --require-module ts-node/register --format-options '{\"snippetInterface\": \"async-await\"}' --format json:reports/cucumber-report.json --format summary",
     "typescript:init": "tsc --init",
     "tslint:init": "tslint --init",
     "tsc": "tsc",
@@ -13,7 +13,6 @@
     "lint": "tslint --format stylish --config tslint.json -e **/*.d.ts **/*.ts",
     "prebuild": "rimraf build",
     "build": "npm-run-all tsc lint"
-    
   },
   "author": "Henri d'Orgeval",
   "license": "ISC",
