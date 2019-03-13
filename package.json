@@ -13,6 +13,7 @@
     "lint": "tslint --format stylish --config tslint.json -e **/*.d.ts **/*.ts",
     "prebuild": "rimraf build",
     "build": "npm-run-all tsc lint"
+
   },
   "author": "Henri d'Orgeval",
   "license": "ISC",
