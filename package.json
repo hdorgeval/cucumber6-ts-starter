@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm-run-all cucumber report",
+    "test": "npm run cucumber && npm run report",
     "cucumber": "./node_modules/.bin/cucumber-js features/**/*.feature --logLevel=error --require 'step-definitions/**/*.ts' --require 'hooks/**/*.ts'  --require-module ts-node/register --format-options '{\"snippetInterface\": \"async-await\"}' --format json:reports/cucumber-report.json --format summary",
     "typescript:init": "tsc --init",
     "tslint:init": "tslint --init",
@@ -12,7 +12,7 @@
     "report": "node reporters/cucumber-html-reporter.js",
     "lint": "tslint --format stylish --config tslint.json -e **/*.d.ts **/*.ts",
     "prebuild": "rimraf build",
-    "build": "npm-run-all tsc lint"
+    "build": "tsc && npm run lint"
   },
   "author": "Henri d'Orgeval",
   "license": "ISC",
@@ -27,7 +27,6 @@
     "cucumber-html-reporter": "4.0.2",
     "jsome": "2.5.0",
     "minimist": "1.2.0",
-    "npm-run-all": "4.1.2",
     "rimraf": "2.6.2",
     "ts-node": "5.0.1",
     "typescript": "2.7.2"
