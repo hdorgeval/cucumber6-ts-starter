@@ -1,7 +1,7 @@
 {
   "name": "cucumber-ts-starter",
   "version": "2.0.0",
-  "description": "",
+  "description": "Starter project to write and debug cucumber-js features in TypeScript language",
   "main": "index.js",
   "scripts": {
     "test": "npm run cucumber && npm run report",
