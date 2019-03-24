@@ -24,7 +24,7 @@
     "@types/node": "11.11.6",
     "chai": "4.1.2",
     "cucumber": "4.0.0",
-    "cucumber-html-reporter": "4.0.2",
+    "cucumber-html-reporter": "4.0.5",
     "jsome": "2.5.0",
     "minimist": "1.2.0",
     "rimraf": "2.6.2",
