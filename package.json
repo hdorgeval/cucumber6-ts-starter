@@ -19,7 +19,7 @@
   "dependencies": {
     "@types/chai": "4.1.7",
     "@types/cucumber": "4.0.1",
-    "@types/loglevel": "1.5.3",
+    "@types/loglevel": "1.5.4",
     "@types/minimist": "1.2.0",
     "@types/node": "11.11.6",
     "chai": "4.2.0",
