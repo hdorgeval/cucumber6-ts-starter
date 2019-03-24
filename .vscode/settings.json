@@ -10,7 +10,7 @@
       "**/build": true,
       "node_modules/**": true,
     },
-    "editor.tabCompletion": true,
+    "editor.tabCompletion": "on",
     "editor.formatOnSave": false,
     "editor.minimap.enabled": true,
     "editor.minimap.showSlider": "always",
@@ -23,10 +23,6 @@
     "javascript.referencesCodeLens.enabled": true,
     "typescript.referencesCodeLens.enabled": true,
     "typescript.implementationsCodeLens.enabled": true,
-    "typescript.useCodeSnippetsOnMethodSuggest": true,
-
-    // Enable/disable the references code lens
-    "workbench.colorTheme": "Visual Studio Light",
     "git.autofetch": true,
     "cucumber-gotostep.srcPath": "step-definitions"
 }
