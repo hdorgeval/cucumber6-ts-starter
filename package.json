@@ -34,9 +34,9 @@
     "typescript": "3.7.2"
   },
   "devDependencies": {
-    "@types/cucumber-html-reporter": "5.0.0",
-    "@typescript-eslint/eslint-plugin": "2.6.0",
-    "@typescript-eslint/parser": "2.6.0",
+    "@types/cucumber-html-reporter": "5.0.1",
+    "@typescript-eslint/eslint-plugin": "2.6.1",
+    "@typescript-eslint/parser": "2.6.1",
     "eslint": "6.6.0",
     "eslint-config-prettier": "6.5.0",
     "eslint-plugin-import": "2.18.2",
