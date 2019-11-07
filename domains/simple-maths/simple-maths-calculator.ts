@@ -1,35 +1,35 @@
-import { ICommonContext } from "../../hooks/common-hooks";
-import { ILogger } from "../../loggers/common-logger";
-import { NoOpLogger } from "../../loggers/no-op-logger";
+import { CommonContext } from '../../hooks/common-hooks';
+import { Logger } from '../../loggers/common-logger';
+import { NoOpLogger } from '../../loggers/no-op-logger';
 
-export class SimpleMathsCalculator implements ICalculator {
-    private currentValue: number = 0;
-    private logger: ILogger;
-    constructor(private context: ISimpleMathsContext) {
-        this.logger = this.context.logger || new NoOpLogger("noop");
-    }
-    public startWith(value: number): ICalculator {
-        this.logger.info(`startWith(${value})`);
-        this.currentValue = value;
-        return this;
-    }
-    public incrementBy(value: number): ICalculator {
-        this.logger.info(`incrementBy(${value})`);
-        this.currentValue += value;
-        return this;
-    }
-    public get result(): number {
-        this.logger.info(`get result() => ${this.currentValue}`);
-        return this.currentValue;
-    }
+export class SimpleMathsCalculator implements Calculator {
+  private currentValue = 0;
+  private logger: Logger;
+  constructor(private context: SimpleMathsContext) {
+    this.logger = this.context.logger || new NoOpLogger('noop');
   }
-
-export interface ICalculator {
-      startWith: (value: number) => ICalculator;
-      result: number;
-      incrementBy: (value: number) => ICalculator;
+  public startWith(value: number): Calculator {
+    this.logger.info(`startWith(${value})`);
+    this.currentValue = value;
+    return this;
   }
+  public incrementBy(value: number): Calculator {
+    this.logger.info(`incrementBy(${value})`);
+    this.currentValue += value;
+    return this;
+  }
+  public get result(): number {
+    this.logger.info(`get result() => ${this.currentValue}`);
+    return this.currentValue;
+  }
+}
 
-export interface ISimpleMathsContext extends ICommonContext {
-    calculator: ICalculator;
+export interface Calculator {
+  startWith: (value: number) => Calculator;
+  result: number;
+  incrementBy: (value: number) => Calculator;
+}
+
+export interface SimpleMathsContext extends CommonContext {
+  calculator: Calculator;
 }

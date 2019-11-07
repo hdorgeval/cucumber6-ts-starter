@@ -1,46 +1,40 @@
-import { IFormatterOption, ILogger, ILoggerData, LogLevel } from "./common-logger";
-// tslint:disable:no-console
-// tslint:disable:member-ordering
-// tslint:disable:no-empty
-export class NoOpLogger implements ILogger {
-  constructor(public readonly name: string) {
-  }
-  public setLevel = (_: LogLevel) => {
-    return this;
-  }
-  public setPrefixTemplate = (_: string) => {
-    return this;
-  }
+import { Logger } from './common-logger';
 
-  public setPrefixFormatter = (_: (option: IFormatterOption) => string) => {
+export class NoOpLogger implements Logger {
+  constructor(public readonly name: string) {}
+  public setLevel = () => {
     return this;
-  }
+  };
+  public setPrefixTemplate = () => {
+    return this;
+  };
 
-  public setDataFormatter = (_: (data: ILoggerData) => string[]) => {
+  public setPrefixFormatter = () => {
     return this;
-  }
+  };
+
+  public setDataFormatter = () => {
+    return this;
+  };
 
   /**
    * Output info message to console
    *
    * @param msg any data to log to the console
    */
-  public info = (..._: any[]) => {
-  }
+  public info = () => {};
 
   /**
    * Output warning message to console
    *
    * @param msg any data to log to the console
    */
-  public warn = (..._: any[]) => {
-  }
+  public warn = () => {};
 
   /**
    * Output error message to console
    *
    * @param msg any data to log to the console
    */
-  public error = (..._: any[]) => {
-  }
+  public error = () => {};
 }

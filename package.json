@@ -1,18 +1,20 @@
 {
   "name": "cucumber-ts-starter",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Starter project to write and debug cucumber-js features in TypeScript language",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --write \"{domains,features,hooks,loggers,reporters,step-definitions}/**/*.{ts,tsx,css,html}\" ",
     "test": "npm run cucumber && npm run report",
     "cucumber": "./node_modules/.bin/cucumber-js features/**/*.feature --logLevel=error --require 'step-definitions/**/*.ts' --require 'hooks/**/*.ts'  --require-module ts-node/register --format-options '{\"snippetInterface\": \"async-await\"}' --format json:reports/cucumber-report.json --format summary",
     "typescript:init": "tsc --init",
-    "tslint:init": "tslint --init",
+    "eslint-fix": "eslint ./ --ext .js,.ts,.tsx --fix",
+    "eslint-init": "eslint --init",
     "tsc": "tsc",
-    "report": "node reporters/cucumber-html-reporter.js",
-    "lint": "tslint --format stylish --config tslint.json -e **/*.d.ts **/*.ts",
-    "prebuild": "rimraf build",
-    "build": "tsc && npm run lint"
+    "tsc-init": "tsc --init",
+    "lint": "eslint . --ext .js,.ts,.tsx --format visualstudio --no-color --max-warnings 10 --report-unused-disable-directives --ignore-pattern 'build/*' --ignore-pattern 'dist/*' --ignore-pattern 'package/*' --ignore-pattern 'coverage/*' --ignore-pattern 'node_modules/*'",
+    "report": "ts-node reporters/cucumber-html-reporter.ts",
+    "build": "rimraf build && npm run format && npm run lint && tsc "
   },
   "author": "Henri d'Orgeval",
   "license": "ISC",
@@ -27,12 +29,18 @@
     "cucumber-html-reporter": "4.0.5",
     "jsome": "2.5.0",
     "minimist": "1.2.0",
-    "rimraf": "2.6.3",
+    "rimraf": "3.0.0",
     "ts-node": "8.0.3",
-    "typescript": "3.3.4000"
+    "typescript": "3.6.4"
   },
   "devDependencies": {
-    "eslint": "5.15.3",
-    "tslint": "5.14.0"
+    "@types/cucumber-html-reporter": "5.0.0",
+    "@typescript-eslint/eslint-plugin": "2.6.0",
+    "@typescript-eslint/parser": "2.6.0",
+    "eslint": "6.6.0",
+    "eslint-config-prettier": "6.5.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-prettier": "3.1.1",
+    "prettier": "1.18.2"
   }
 }

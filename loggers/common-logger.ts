@@ -1,27 +1,25 @@
-import * as queryString from "querystring";
-import { cliLogLevel } from "./command-line-logger-args";
-export type LogLevel =
-| "verbose"
-| "warn"
-| "error"
-| "silent";
+import { cliLogLevel } from './command-line-logger-args';
+import * as queryString from 'querystring';
+export type LogLevel = 'verbose' | 'warn' | 'error' | 'silent';
 
-export const defaultLogLevel: LogLevel = "error";
+export const defaultLogLevel: LogLevel = 'error';
 export const currentLogLevel: LogLevel = cliLogLevel || defaultLogLevel;
 
 const loggers: {
-  [index: string]: ILogger,
+  [index: string]: Logger;
 } = {};
 
-export function getLogger(name: string): ILogger {
+export function getLogger(name: string): Logger {
   const foundLogger = loggers[name];
   if (foundLogger === undefined) {
-    throw new Error(`Logger '${name}' has not been registered. Register your logger with the buildLogger() method`);
+    throw new Error(
+      `Logger '${name}' has not been registered. Register your logger with the buildLogger() method`,
+    );
   }
   return foundLogger;
 }
 
-export function buildLogger<MyLogger extends ILogger>(myLogger: new (name: string) => MyLogger)  {
+export function buildLogger<MyLogger extends Logger>(myLogger: new (name: string) => MyLogger) {
   return {
     withName: (name: string) => {
       const foundLogger = loggers[name] || new myLogger(name);
@@ -33,10 +31,10 @@ export function buildLogger<MyLogger extends ILogger>(myLogger: new (name: strin
             withTemplatePrefix: (template: string) => {
               foundLogger.setPrefixTemplate(template);
               return {
-                withPrefixFormatter: (formatter: (option: IFormatterOption) => string) => {
+                withPrefixFormatter: (formatter: (option: FormatterOption) => string) => {
                   foundLogger.setPrefixFormatter(formatter);
                   return {
-                    withDataFormatter: (msgFormatter: (data: ILoggerData) => string[]) => {
+                    withDataFormatter: (msgFormatter: (data: LoggerData) => string[]) => {
                       foundLogger.setDataFormatter(msgFormatter);
                     },
                   };
@@ -50,24 +48,24 @@ export function buildLogger<MyLogger extends ILogger>(myLogger: new (name: strin
   };
 }
 
-export interface ILoggerOption {
+export interface LoggerOption {
   loggerName: string;
   loggerLevel: LogLevel;
 }
-export interface IFormatterOption extends ILoggerOption {
+export interface FormatterOption extends LoggerOption {
   prefixTemplate: string;
 }
 
-export interface ILoggerData extends IFormatterOption {
+export interface LoggerData extends FormatterOption {
   prefix: string;
-  messages: any[];
+  messages: unknown[];
 }
 
-export interface ILogger {
-  setLevel: (level: LogLevel) => ILogger;
-  setPrefixTemplate: (template: string) => ILogger;
-  setPrefixFormatter: (formatter: (option: IFormatterOption) => string) => ILogger;
-  setDataFormatter: (formatter: (data: ILoggerData) => string[]) => ILogger;
+export interface Logger {
+  setLevel: (level: LogLevel) => Logger;
+  setPrefixTemplate: (template: string) => Logger;
+  setPrefixFormatter: (formatter: (option: FormatterOption) => string) => Logger;
+  setDataFormatter: (formatter: (data: LoggerData) => string[]) => Logger;
   name: string;
 
   /**
@@ -75,21 +73,21 @@ export interface ILogger {
    *
    * @param msg any data to log to the console
    */
-  info: (...msg: any[]) => void;
+  info: (...msg: unknown[]) => void;
 
   /**
    * Output warning message to console
    *
    * @param msg any data to log to the console
    */
-  warn: (...msg: any[]) => void;
+  warn: (...msg: unknown[]) => void;
 
   /**
    * Output error message to console
    *
    * @param msg any data to log to the console
    */
-  error: (...msg: any[]) => void;
+  error: (...msg: unknown[]) => void;
 }
 
 // export function getLogger(name: string): ILogger {
@@ -101,25 +99,6 @@ export interface ILogger {
 //     .withDataFormatter(() => [""]);
 //   return loggers[name];
 // }
-
-export function defaultPrefixFormatter(option: IFormatterOption): string {
-  const template: string = option.prefixTemplate;
-  if (template === undefined) {
-    return "";
-  }
-
-  const now: Date = new Date();
-  const prefix: string =
-      template
-        .replace("yyyy", `${now.getFullYear()}`)
-        .replace("mm", month(now))
-        .replace("dd", day(now))
-        .replace("hh", hour(now))
-        .replace("mm", minute(now))
-        .replace("ss", second(now))
-        .replace("L", option.loggerLevel.toLocaleUpperCase());
-  return prefix;
-}
 
 function month(date: Date): string {
   const result = date.getMonth() + 1;
@@ -160,39 +139,62 @@ function second(date: Date): string {
   }
   return `0${result}`;
 }
+export function defaultPrefixFormatter(option: FormatterOption): string {
+  const template: string = option.prefixTemplate;
+  if (template === undefined) {
+    return '';
+  }
 
-export const defaultPrefix: string = "[yyyy-mm-dd][hh:mm:ss][L]";
+  const now: Date = new Date();
+  const prefix: string = template
+    .replace('yyyy', `${now.getFullYear()}`)
+    .replace('mm', month(now))
+    .replace('dd', day(now))
+    .replace('hh', hour(now))
+    .replace('mm', minute(now))
+    .replace('ss', second(now))
+    .replace('L', option.loggerLevel.toLocaleUpperCase());
+  return prefix;
+}
 
-export function defaultDataFormatter(data: ILoggerData): string[] {
+export const defaultPrefix = '[yyyy-mm-dd][hh:mm:ss][L]';
+
+export function defaultDataFormatter(data: LoggerData): string[] {
   const result: string[] = [];
 
-  const serializedMessages = data.messages.map((msg: string) => {
-    if (typeof msg === "string") {
+  const serializedMessages = data.messages.map((msg: unknown) => {
+    if (msg === undefined) {
+      return 'undefined';
+    }
+
+    if (typeof msg === 'string') {
       return msg;
     }
-    const serializedMessage = queryString.stringify(msg, " ", "=", {encodeURIComponent: ( s: string ) => s });
+    const serializedMessage = queryString.stringify(msg as {}, ' ', '=', {
+      encodeURIComponent: (s: string) => s,
+    });
     return serializedMessage;
   });
 
-  const message = serializedMessages
-                    .join(" ")
-                    .trim();
+  const message = serializedMessages.join(' ').trim();
 
-  result.push(`${data.prefix || ""} ${message}`);
+  result.push(`${data.prefix || ''} ${message}`);
   return result;
 }
 
-export function defaultPrefixAndDataMergerForLevel(logLevel: LogLevel,
-                                                   formatterOption: IFormatterOption,
-                                                   formatPrefix: (option: IFormatterOption) => string,
-                                                   formatData: (data: ILoggerData) => string[],
-                                                   ...msg: any[]): string[] {
-  const option: IFormatterOption = {
+export function defaultPrefixAndDataMergerForLevel(
+  logLevel: LogLevel,
+  formatterOption: FormatterOption,
+  formatPrefix: (option: FormatterOption) => string,
+  formatData: (data: LoggerData) => string[],
+  ...msg: unknown[]
+): string[] {
+  const option: FormatterOption = {
     ...formatterOption,
     loggerLevel: logLevel,
   };
   const prefix = formatPrefix(option);
-  const data: ILoggerData = {
+  const data: LoggerData = {
     ...formatterOption,
     messages: msg,
     prefix,

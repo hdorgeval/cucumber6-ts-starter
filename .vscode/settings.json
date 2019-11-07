@@ -11,6 +11,7 @@
       "node_modules/**": true,
     },
     "editor.tabCompletion": "on",
+    "editor.formatOnPaste": true,
     "editor.formatOnSave": false,
     "editor.minimap.enabled": true,
     "editor.minimap.showSlider": "always",
@@ -24,5 +25,25 @@
     "typescript.referencesCodeLens.enabled": true,
     "typescript.implementationsCodeLens.enabled": true,
     "git.autofetch": true,
-    "cucumber-gotostep.srcPath": "step-definitions"
+    "cucumber-gotostep.srcPath": "step-definitions",
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.options": {
+        "extensions": [".js", ".ts"]
+    },
+    "eslint.validate": [
+        "javascript",
+        {
+            "language": "typescript",
+            "autoFix": true
+        }
+    ],
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "prettier.requireConfig": true,
+
+    "cucumberautocomplete.steps": [
+        "step-definitions/**/*.ts"
+    ]
+    
 }
