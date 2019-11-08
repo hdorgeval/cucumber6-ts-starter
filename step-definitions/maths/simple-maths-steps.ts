@@ -26,7 +26,7 @@ When('I increment the variable by {int}', async function(value: number) {
 Then('the variable should contain {int}', async function(value: number) {
   const ctx: SimpleMathsContext = this.context;
   ctx.logger.info(`Then the variable should contain ${value}`);
-  expect(ctx.calculator.result).equals(value);
+  expect(ctx.calculator.result).to.equals(value);
 });
 
 /**
