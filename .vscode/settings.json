@@ -44,6 +44,7 @@
 
     "cucumberautocomplete.steps": [
         "step-definitions/**/*.ts"
-    ]
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib"
     
 }
