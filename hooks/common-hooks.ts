@@ -19,6 +19,13 @@ Before({ tags: '@simpleLogger' }, async function() {
 /**
  * Before each scenario hook
  */
+Before({ tags: '@noOpLogger' }, async function() {
+  this.logger = getLogger('@noOpLogger');
+});
+
+/**
+ * Before each scenario hook
+ */
 Before({ tags: '@simpleLogger and @debug' }, async function() {
   this.logger = getLogger('@simpleLogger@verbose');
 });
