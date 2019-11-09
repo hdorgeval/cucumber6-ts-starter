@@ -22,7 +22,7 @@
     "@types/cucumber": "6.0.0",
     "@types/loglevel": "1.6.3",
     "@types/minimist": "1.2.0",
-    "@types/node": "12.12.6",
+    "@types/node": "12.12.7",
     "chai": "4.2.0",
     "cucumber": "6.0.3",
     "cucumber-html-reporter": "5.0.2",
@@ -40,6 +40,6 @@
     "eslint-config-prettier": "6.5.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-prettier": "3.1.1",
-    "prettier": "1.18.2"
+    "prettier": "1.19.0"
   }
 }
