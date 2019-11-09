@@ -30,3 +30,20 @@ Starter project to write and debug cucumber-js features in TypeScript language.
 ## To view the html report of the last run
 
 * run the command `npm run report`.
+
+## To use a custom option on the CLI
+
+* add your custom option to the CLI that starts cucumber:
+```sh
+./node_modules/.bin/cucumber-js features/**/*.feature --foo=bar 
+```
+* use it at runtime:
+```js
+if (this.cliArgs.foo === 'bar') {
+  // custom code for option --foo=bar
+}
+```
+
+## To use a custom World Objet
+
+* cutomize the given Custom World Object : [custom-world](world/custom-world.ts)
