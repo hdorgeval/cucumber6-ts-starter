@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf build && npm run format && npm run lint && tsc ",
-    "cucumber": "./node_modules/.bin/cucumber-js features/**/*.feature --logLevel=error --require 'step-definitions/**/*.ts' --require 'hooks/**/*.ts'  --require-module ts-node/register --format-options '{\"snippetInterface\": \"async-await\"}' --format json:reports/cucumber-report.json --format summary",
+    "cucumber": "./node_modules/.bin/cucumber-js features/**/*.feature --logLevel=error --require 'world/custom-world.ts' --require 'step-definitions/**/*.ts' --require 'hooks/**/*.ts'  --require-module ts-node/register --format-options '{\"snippetInterface\": \"async-await\"}' --format json:reports/cucumber-report.json --format summary --format progress-bar --format node_modules/cucumber-pretty",
     "eslint-fix": "eslint ./ --ext .js,.ts,.tsx --fix",
     "eslint-init": "eslint --init",
     "format": "prettier --write \"{domains,features,hooks,loggers,reporters,step-definitions}/**/*.{ts,tsx,css,html}\" ",
@@ -26,6 +26,7 @@
     "chai": "4.2.0",
     "cucumber": "6.0.3",
     "cucumber-html-reporter": "5.0.2",
+    "cucumber-pretty": "6.0.0",
     "jsome": "2.5.0",
     "minimist": "1.2.0",
     "rimraf": "3.0.0",

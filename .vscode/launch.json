@@ -14,6 +14,8 @@
       "program": "${workspaceRoot}/node_modules/.bin/cucumber-js",
       "args": [
         "features/**/*.feature",
+        "--require",
+        "world/custom-world.ts",
         "--require", 
         "step-definitions/**/*.ts",
         "--require",

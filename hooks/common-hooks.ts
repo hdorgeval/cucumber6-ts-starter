@@ -1,7 +1,4 @@
-import { cliArgs, CliArgs } from './command-line-args';
-import { buildLogger, getLogger, Logger } from '../loggers/common-logger';
-import { NoOpLogger } from '../loggers/no-op-logger';
-import { SimpleLogger } from '../loggers/simple-logger';
+import { getLogger } from '../loggers/common-logger';
 import { Before, BeforeAll } from 'cucumber';
 
 Before({ tags: '@ignore' }, async function() {
@@ -16,35 +13,17 @@ Before({ tags: '@debug' }, async function() {
  * Before each scenario hook
  */
 Before({ tags: '@simpleLogger' }, async function() {
-  this.context = {
-    ...this.context,
-    cliArgs,
-    logger: getLogger('@simpleLogger'),
-  };
+  this.logger = getLogger('@simpleLogger');
 });
 
 /**
  * Before each scenario hook
  */
 Before({ tags: '@simpleLogger and @debug' }, async function() {
-  this.context = {
-    ...this.context,
-    cliArgs,
-    logger: getLogger('@simpleLogger@verbose'),
-  };
+  this.logger = getLogger('@simpleLogger@verbose');
 });
 
 BeforeAll(async function() {
-  buildLogger(SimpleLogger)
-    .withName('@simpleLogger')
-    .withLevel(cliArgs.logLevel);
-  buildLogger(SimpleLogger)
-    .withName('@simpleLogger@verbose')
-    .withLevel('verbose');
-  buildLogger(NoOpLogger).withName('@noOpLogger');
+  // eslint-disable-next-line no-console
+  console.log('Before All');
 });
-
-export interface CommonContext {
-  cliArgs: CliArgs;
-  logger: Logger;
-}
