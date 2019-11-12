@@ -9,7 +9,7 @@
     "eslint-fix": "eslint ./ --ext .js,.ts,.tsx --fix",
     "eslint-init": "eslint --init",
     "format": "prettier --write \"{domains,features,hooks,loggers,reporters,step-definitions}/**/*.{ts,tsx,css,html}\" ",
-    "lint": "eslint . --ext .js,.ts,.tsx --format visualstudio --no-color --max-warnings 10 --report-unused-disable-directives --ignore-pattern 'build/*' --ignore-pattern 'dist/*' --ignore-pattern 'package/*' --ignore-pattern 'coverage/*' --ignore-pattern 'node_modules/*'",
+    "lint": "eslint ./ --ext .js,.ts,.tsx --format visualstudio --no-color --max-warnings 10 --report-unused-disable-directives",
     "report": "ts-node reporters/cucumber-html-reporter.ts",
     "test": "npm run cucumber && npm run report",
     "tsc-init": "tsc --init",
