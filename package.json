@@ -30,17 +30,17 @@
     "jsome": "2.5.0",
     "minimist": "1.2.0",
     "rimraf": "3.0.0",
-    "ts-node": "8.4.1",
+    "ts-node": "8.5.0",
     "typescript": "3.7.2"
   },
   "devDependencies": {
     "@types/cucumber-html-reporter": "5.0.1",
-    "@typescript-eslint/eslint-plugin": "2.6.1",
-    "@typescript-eslint/parser": "2.6.1",
+    "@typescript-eslint/eslint-plugin": "2.7.0",
+    "@typescript-eslint/parser": "2.7.0",
     "eslint": "6.6.0",
     "eslint-config-prettier": "6.5.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-prettier": "3.1.1",
-    "prettier": "1.19.0"
+    "prettier": "1.19.1"
   }
 }
