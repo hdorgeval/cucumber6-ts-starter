@@ -7,6 +7,7 @@
 		"dbaeumer.vscode-eslint",
 		"oderwat.indent-rainbow",
 		"coenraads.bracket-pair-colorizer-2",
-		"wmaurer.change-case"
+		"wmaurer.change-case",
+		"alexkrechik.cucumberautocomplete"
 	]
 }
