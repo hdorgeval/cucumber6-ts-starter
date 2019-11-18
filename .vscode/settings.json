@@ -17,6 +17,11 @@
     "editor.minimap.showSlider": "always",
     "editor.minimap.renderCharacters": true,
     "editor.mouseWheelZoom": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true
@@ -25,7 +30,6 @@
     "typescript.referencesCodeLens.enabled": true,
     "typescript.implementationsCodeLens.enabled": true,
     "git.autofetch": true,
-    "cucumber-gotostep.srcPath": "step-definitions",
     "eslint.alwaysShowStatus": true,
     "eslint.autoFixOnSave": true,
     "eslint.options": {
@@ -40,8 +44,8 @@
     ],
     "prettier.singleQuote": true,
     "prettier.trailingComma": "all",
-    "prettier.requireConfig": true,
 
+    "cucumberautocomplete.syncfeatures": "./features/**/*.feature",
     "cucumberautocomplete.steps": [
         "step-definitions/**/*.ts"
     ],
