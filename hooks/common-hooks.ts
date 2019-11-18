@@ -1,5 +1,5 @@
 import { getLogger } from '../loggers/common-logger';
-import { Before, BeforeAll } from 'cucumber';
+import { Before, BeforeAll, AfterAll } from 'cucumber';
 
 Before({ tags: '@ignore' }, async function() {
   return 'skipped';
@@ -33,4 +33,9 @@ Before({ tags: '@simpleLogger and @debug' }, async function() {
 BeforeAll(async function() {
   // eslint-disable-next-line no-console
   console.log('Before All');
+});
+
+AfterAll(async function() {
+  // eslint-disable-next-line no-console
+  console.log('After All');
 });
