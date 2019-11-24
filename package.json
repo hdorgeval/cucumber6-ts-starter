@@ -25,7 +25,7 @@
     "@types/minimist": "1.2.0",
     "@types/node": "12.12.12",
     "chai": "4.2.0",
-    "cucumber": "6.0.4",
+    "cucumber": "6.0.5",
     "cucumber-html-reporter": "5.0.2",
     "cucumber-pretty": "6.0.0",
     "jsome": "2.5.0",
