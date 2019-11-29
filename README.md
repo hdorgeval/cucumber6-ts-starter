@@ -31,6 +31,29 @@ Starter project to write and debug cucumber-js features in TypeScript language.
 
 * run the command `npm run report`.
 
+## To create a new step
+
+* first write the Given/When/Then sentence:
+  ```gherkin
+  Given I push "foo" on "bar"
+  ```
+
+* tag the scenario with `@only`
+
+* run the npm script:
+  ```sh
+  npm run snippets
+  ```
+
+* the script will report the missing step(s): you just need to copy and paste them in the step definitions file:
+
+  ```sh
+  Given('I push {string} on {string}', async function (string, string2) {
+    // Write code here that turns the phrase above into concrete actions
+    return 'pending';
+  });
+  ```
+
 ## To use a custom option on the CLI
 
 * add your custom option to the CLI that starts cucumber:
