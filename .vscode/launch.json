@@ -11,7 +11,7 @@
       "console": "integratedTerminal",
       "name": "Launch Features",
       "stopOnEntry": false,
-      "program": "${workspaceRoot}/node_modules/.bin/cucumber-js",
+      "program": "${workspaceRoot}/node_modules/cucumber/bin/cucumber-js",
       "args": [
         "features/**/*.feature",
         "--require",
@@ -22,7 +22,7 @@
         "hooks/**/*.ts",
         "--require-module",
         "ts-node/register",
-        "--format-options '{\"snippetInterface\": \"async-await\"}'",
+        "--format-options \"{\"snippetInterface\": \"async-await\"}\"  ",
         "--format",
         "summary",
         "--tags",
