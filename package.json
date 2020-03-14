@@ -30,7 +30,7 @@
     "cucumber-html-reporter": "5.0.2",
     "cucumber-pretty": "6.0.0",
     "jsome": "2.5.0",
-    "minimist": "1.2.0",
+    "minimist": "1.2.2",
     "rimraf": "3.0.0",
     "ts-node": "8.5.2",
     "typescript": "3.7.2"
