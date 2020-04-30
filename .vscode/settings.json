@@ -31,7 +31,6 @@
     "typescript.implementationsCodeLens.enabled": true,
     "git.autofetch": true,
     "eslint.alwaysShowStatus": true,
-    "eslint.autoFixOnSave": true,
     "eslint.options": {
         "extensions": [".js", ".ts"]
     },
@@ -49,6 +48,9 @@
     "cucumberautocomplete.steps": [
         "step-definitions/**/*.ts"
     ],
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
     
 }
