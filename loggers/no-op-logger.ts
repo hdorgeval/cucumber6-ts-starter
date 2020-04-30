@@ -22,6 +22,7 @@ export class NoOpLogger implements Logger {
    *
    * @param msg any data to log to the console
    */
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   public info = () => {};
 
   /**
@@ -29,6 +30,7 @@ export class NoOpLogger implements Logger {
    *
    * @param msg any data to log to the console
    */
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   public warn = () => {};
 
   /**
@@ -36,5 +38,6 @@ export class NoOpLogger implements Logger {
    *
    * @param msg any data to log to the console
    */
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   public error = () => {};
 }
