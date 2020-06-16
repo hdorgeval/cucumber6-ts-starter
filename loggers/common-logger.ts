@@ -19,6 +19,7 @@ export function getLogger(name: string): Logger {
   return foundLogger;
 }
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function buildLogger<MyLogger extends Logger>(myLogger: new (name: string) => MyLogger) {
   return {
     withName: (name: string) => {
@@ -170,9 +171,14 @@ export function defaultDataFormatter(data: LoggerData): string[] {
     if (typeof msg === 'string') {
       return msg;
     }
-    const serializedMessage = queryString.stringify(msg as {}, ' ', '=', {
-      encodeURIComponent: (s: string) => s,
-    });
+    const serializedMessage = queryString.stringify(
+      msg as queryString.ParsedUrlQueryInput,
+      ' ',
+      '=',
+      {
+        encodeURIComponent: (s: string) => s,
+      },
+    );
     return serializedMessage;
   });
 

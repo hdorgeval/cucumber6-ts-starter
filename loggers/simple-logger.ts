@@ -19,7 +19,7 @@ export class SimpleLogger implements Logger {
   };
 
   constructor(public readonly name: string) {}
-  public setLevel = (level: LogLevel) => {
+  public setLevel = (level: LogLevel): SimpleLogger => {
     this.level = level;
     this.formatterOption = {
       ...this.formatterOption,
@@ -27,7 +27,7 @@ export class SimpleLogger implements Logger {
     };
     return this;
   };
-  public setPrefixTemplate = (template: string) => {
+  public setPrefixTemplate = (template: string): SimpleLogger => {
     this.prefixTemplate = template;
     this.formatterOption = {
       ...this.formatterOption,
@@ -36,12 +36,12 @@ export class SimpleLogger implements Logger {
     return this;
   };
 
-  public setPrefixFormatter = (formatter: (option: FormatterOption) => string) => {
+  public setPrefixFormatter = (formatter: (option: FormatterOption) => string): SimpleLogger => {
     this.formatPrefix = formatter;
     return this;
   };
 
-  public setDataFormatter = (formatter: (data: LoggerData) => string[]) => {
+  public setDataFormatter = (formatter: (data: LoggerData) => string[]): SimpleLogger => {
     this.formatData = formatter;
     return this;
   };
@@ -51,7 +51,7 @@ export class SimpleLogger implements Logger {
    *
    * @param msg any data to log to the console
    */
-  public info = (...msg: unknown[]) => {
+  public info = (...msg: unknown[]): void => {
     if (this.level === 'verbose') {
       const formattedData = defaultPrefixAndDataMergerForLevel(
         'verbose',
@@ -70,7 +70,7 @@ export class SimpleLogger implements Logger {
    *
    * @param msg any data to log to the console
    */
-  public warn = (...msg: unknown[]) => {
+  public warn = (...msg: unknown[]): void => {
     if (this.level === 'verbose' || this.level === 'warn') {
       const formattedData = defaultPrefixAndDataMergerForLevel(
         'warn',
@@ -89,7 +89,7 @@ export class SimpleLogger implements Logger {
    *
    * @param msg any data to log to the console
    */
-  public error = (...msg: unknown[]) => {
+  public error = (...msg: unknown[]): void => {
     if (this.level === 'verbose' || this.level === 'warn' || this.level === 'error') {
       const formattedData = defaultPrefixAndDataMergerForLevel(
         'error',

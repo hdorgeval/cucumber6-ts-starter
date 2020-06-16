@@ -2,18 +2,18 @@ import { Logger } from './common-logger';
 
 export class NoOpLogger implements Logger {
   constructor(public readonly name: string) {}
-  public setLevel = () => {
+  public setLevel = (): NoOpLogger => {
     return this;
   };
-  public setPrefixTemplate = () => {
-    return this;
-  };
-
-  public setPrefixFormatter = () => {
+  public setPrefixTemplate = (): NoOpLogger => {
     return this;
   };
 
-  public setDataFormatter = () => {
+  public setPrefixFormatter = (): NoOpLogger => {
+    return this;
+  };
+
+  public setDataFormatter = (): NoOpLogger => {
     return this;
   };
 
@@ -23,7 +23,7 @@ export class NoOpLogger implements Logger {
    * @param msg any data to log to the console
    */
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public info = () => {};
+  public info = (): void => {};
 
   /**
    * Output warning message to console
@@ -31,7 +31,7 @@ export class NoOpLogger implements Logger {
    * @param msg any data to log to the console
    */
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public warn = () => {};
+  public warn = (): void => {};
 
   /**
    * Output error message to console
@@ -39,5 +39,5 @@ export class NoOpLogger implements Logger {
    * @param msg any data to log to the console
    */
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  public error = () => {};
+  public error = (): void => {};
 }
