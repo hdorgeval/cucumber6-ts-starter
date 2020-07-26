@@ -1,6 +1,7 @@
 # cucumber-ts-starter
 
 [![Build Status](https://travis-ci.org/hdorgeval/cucumber-ts-starter.svg?branch=master)](https://travis-ci.org/hdorgeval/cucumber-ts-starter)
+[![Build status](https://ci.appveyor.com/api/projects/status/bwrtikv923n8oexp?svg=true)](https://ci.appveyor.com/project/hdorgeval/cucumber-ts-starter)
 
 Starter project to write and debug cucumber-js features in TypeScript language.
 
