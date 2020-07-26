@@ -12,7 +12,7 @@
     "lint": "eslint ./ --ext .js,.ts,.tsx --format visualstudio --no-color --max-warnings 10 --report-unused-disable-directives",
     "only": "npm run cucumber -- --tags @only",
     "report": "ts-node reporters/cucumber-html-reporter.ts",
-    "snippets": "node ./node_modules/cucumber/bin/cucumber-js features/**/*.feature --dry-run --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format snippets --tags @only",
+    "snippets": "node ./node_modules/cucumber/bin/cucumber-js features/**/*.feature --dry-run --no-color --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format snippets --tags @only",
     "test": "npm run cucumber",
     "tsc-init": "tsc --init",
     "tsc": "tsc"
