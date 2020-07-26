@@ -15,7 +15,7 @@
     "snippets": "node ./node_modules/cucumber/bin/cucumber-js features/**/*.feature --dry-run --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format snippets --tags @only",
     "test": "npm run cucumber",
     "tsc-init": "tsc --init",
-    "tsc": "tsc" 
+    "tsc": "tsc"
   },
   "author": "Henri d'Orgeval",
   "license": "ISC",
@@ -25,7 +25,7 @@
     "@types/cucumber-html-reporter": "5.0.1",
     "@types/loglevel": "1.6.3",
     "@types/minimist": "1.2.0",
-    "@types/node": "14.0.13",
+    "@types/node": "14.0.26",
     "chai": "4.2.0",
     "cucumber": "6.0.5",
     "cucumber-html-reporter": "5.2.0",
@@ -34,7 +34,7 @@
     "minimist": "1.2.5",
     "rimraf": "3.0.2",
     "ts-node": "8.10.2",
-    "typescript": "3.9.5"
+    "typescript": "3.9.7"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "3.7.0",
