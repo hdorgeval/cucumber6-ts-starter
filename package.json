@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf build && npm run format && npm run lint && tsc ",
-    "cucumber": "node ./node_modules/cucumber/bin/cucumber-js features/**/*.feature --foo=bar --logLevel=error --require 'world/custom-world.ts' --require 'step-definitions/**/*.ts' --require 'hooks/**/*.ts'  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format json:reports/cucumber-report.json --format summary --format progress-bar --format node_modules/cucumber-pretty",
-    "snippets": "node ./node_modules/cucumber/bin/cucumber-js features/**/*.feature --dry-run --require 'world/custom-world.ts' --require 'step-definitions/**/*.ts' --require 'hooks/**/*.ts'  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format snippets --tags @only",
+    "cucumber": "node ./node_modules/cucumber/bin/cucumber-js features/**/*.feature --no-color --foo=bar --logLevel=error --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format json:reports/cucumber-report.json --format summary --format progress-bar --format node_modules/cucumber-pretty",
+    "snippets": "node ./node_modules/cucumber/bin/cucumber-js features/**/*.feature --dry-run --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \"{\\\"snippetInterface\\\": \\\"async-await\\\"}\" --format snippets --tags @only",
     "eslint-fix": "eslint ./ --ext .js,.ts,.tsx --fix",
     "eslint-init": "eslint --init",
     "format": "prettier --write \"{domains,features,hooks,loggers,reporters,step-definitions}/**/*.{ts,tsx,css,html}\" ",
