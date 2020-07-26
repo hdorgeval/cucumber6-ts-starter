@@ -15,7 +15,7 @@ Starter project to write and debug cucumber-js features in TypeScript language.
 
 ## To debug a scenario in Visual Studio Code
 
-* tag the scenario with `@only` and `@debug`
+* tag the scenario with `@debug`
 * set the breakpoints in the typescript code
 * Start debugging
 
