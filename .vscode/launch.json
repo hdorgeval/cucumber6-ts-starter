@@ -26,7 +26,7 @@
         "--format",
         "summary",
         "--tags",
-        "@only and @debug",
+        "@debug",
         "--foo",
         "bar"
       ],
