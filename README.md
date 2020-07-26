@@ -22,6 +22,7 @@ Starter project to write and debug cucumber-js features in TypeScript language.
 ## To run only specific scenarios
 
 * tag the scenario(s) with `@only`
+* run the command `npm run only`.
 
 ## To ignore a scenario
 
