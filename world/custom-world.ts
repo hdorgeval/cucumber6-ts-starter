@@ -1,5 +1,4 @@
 import { cliArgs, CliArgs } from './command-line-args';
-import { Logger, getLogger } from '../loggers';
 import { setWorldConstructor } from 'cucumber';
 import { Stream } from 'stream';
 
@@ -24,7 +23,6 @@ export interface CucumberWorldConstructorParams {
 export class CustomWorld {
   public attach: AttachFn;
   public cliArgs: CliArgs;
-  public logger: Logger;
 
   /**
    *
@@ -32,7 +30,6 @@ export class CustomWorld {
   constructor({ attach }: CucumberWorldConstructorParams) {
     this.attach = attach;
     this.cliArgs = cliArgs;
-    this.logger = getLogger('@noOpLogger');
   }
 }
 

@@ -1,10 +1,10 @@
-import { currentLogLevel, LogLevel } from '../loggers/common-logger';
+import { cliLogLevel, LogLevel } from './command-line-logger-args';
 import minimist, { ParsedArgs } from 'minimist';
 const args: ParsedArgs = minimist(process.argv.slice(2));
 
 export const cliArgs = {
   ...args,
-  logLevel: currentLogLevel,
+  logLevel: cliLogLevel,
   rawCommandLine: process.argv.join(' '),
 } as CliArgs;
 

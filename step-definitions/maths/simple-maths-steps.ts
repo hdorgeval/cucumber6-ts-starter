@@ -5,7 +5,7 @@ import { Before, Given, Then, When } from 'cucumber';
 Given('I have a simple maths calculator', async function () {
   // Uncomment below line if no reporter is declared on the CLI
   // this.logger.info('Given I have a simple maths calculator');
-  this.calculator = new SimpleMathsCalculator(this.logger);
+  this.calculator = new SimpleMathsCalculator();
 });
 
 Given('a variable set to {int}', async function (value: number) {
