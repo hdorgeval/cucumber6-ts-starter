@@ -36,6 +36,10 @@ Starter project to write and debug cucumber-js v6 features in TypeScript languag
 
 * run the command `npm run report`.
 
+## To view the steps usage
+
+* run the command `npm run steps-usage`.
+
 ## To create a new step
 
 * first write the Given/When/Then sentence:
