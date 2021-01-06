@@ -12,13 +12,13 @@ Background: Calculator
   Given I have a simple maths calculator
 
 Scenario: easy maths
-  Given a variable set to 11
-  When I increment the variable by 1
+  Given a variable is set to 11
+  When I increment this variable by 1
   Then the variable should contain 12
 
 Scenario Outline: much more complex stuff
-  Given a variable set to <var>
-  When I increment the variable by <increment>
+  Given a variable is set to <var>
+  When I increment this variable by <increment>
   Then the variable should contain <result>
   Examples:
     | var | increment | result |

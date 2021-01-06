@@ -6,11 +6,11 @@ Given('I have a simple maths calculator', async function () {
   this.calculator = new SimpleMathsCalculator();
 });
 
-Given('a variable set to {int}', async function (value: number) {
+Given('a variable is set to {int}', async function (value: number) {
   this.calculator.startWith(value);
 });
 
-When('I increment the variable by {int}', async function (value: number) {
+When('I increment this variable by {int}', async function (value: number) {
   this.calculator.incrementBy(value);
 });
 
