@@ -5,6 +5,8 @@
 
 Starter project to write and debug cucumber-js v6 features in TypeScript language.
 
+!!! this template is intended to work with cucumber-js v6 only. For cucumber-js v7 this template has been migrated in [cucumber7-ts-starter](https://github.com/hdorgeval/cucumber7-ts-starter) !!!
+
 ## After cloning the repo
 
 * run the command `npm install`.
