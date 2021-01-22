@@ -30,7 +30,7 @@ Starter project to write and debug cucumber-js v6 features in TypeScript languag
 
 * tag the scenario with `@ignore`
 
-## To check for typescript and linting errors
+## To check for typescript, linting and gherkin errors
 
 * run the command `npm run build`.
 
